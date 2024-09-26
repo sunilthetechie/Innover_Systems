@@ -1,3 +1,22 @@
+#Pipeline For Apache Server (Used below pipeline While deploying on Apache Server)
+
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/sunilthetechie/Innover_Systems.git'
+            }
+        }
+        stage('Deploy to Server') {
+            steps {
+              sh 'cp index.html /var/www/html/'
+            }
+        }
+    }
+}
+
+# Pipeline For Docker (Used below pipeline While deploying on Docker)
 pipeline {
     agent any
     stages {
